@@ -1,4 +1,4 @@
-# tomcat+nginx 负载均衡
+﻿# tomcat+nginx 负载均衡
   nginx.conf
   1，nginx代理tomcat
      location / {
@@ -17,7 +17,7 @@
       server 127.0.0.1:8222 weight=1;
       }
 
-#tomcat session共享
+##tomcat session共享
     每个tomcat lib文件导入jar包
     分别在context.xml中配置
       <Valve className="com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve" />
