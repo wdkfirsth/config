@@ -20,10 +20,10 @@
 ##tomcat session共享
     每个tomcat lib文件导入jar包
     分别在context.xml中配置
-      <Valve className="com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve" />
-  <Manager className="com.orangefunction.tomcat.redissessions.RedisSessionManager"
+   “<Valve className="com.orangefunction.tomcat.redissessions.RedisSessionHandlerValve" />
+    "<Manager className="com.orangefunction.tomcat.redissessions.RedisSessionManager"
    host="127.0.0.1"
    port="6379"
    database="0"
-   maxInactiveInterval="60" />
+   maxInactiveInterval="60" />"
 
