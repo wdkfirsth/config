@@ -1,0 +1,18 @@
+From alpine
+MAINTAINER ×××debiaobiao
+RUN apk update &&
+apk add openjdk8 curl busybox tzdata &&
+cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime &&
+echo Asia/Shanghai > /etc/timezone &&
+apk del tzdata &&
+rm -rf /tmp/ /var/cache/apk/
+
+#自定义alpine+阿里云镜像+jdk8+修改系统时间为c'd上海
+FROM alpine
+LABEL maintainer="object2j@163.com"
+RUN echo http://mirrors.aliyun.com/alpine/v3.10/main/  > /etc/apk/repositories && \
+    echo http://mirrors.aliyun.com/alpine/v3.10/community/ >> /etc/apk/repositories
+RUN apk update && apk upgrade && apk add --no-cache bash bash-doc bash-completion \
+        && rm -rf /var/cache/apk/* && /bin/bash &&  apk add openjdk8 curl busybox tzdata \
+        && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime && \
+           echo Asia/Shanghai > /etc/timezone 
